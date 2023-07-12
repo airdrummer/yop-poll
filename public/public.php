@@ -322,26 +322,19 @@ class YOP_Poll_Public {
 		}
 	}
 	public function generate_polls_for_archive( $params ) {
-		$order_by = '';
-		switch ( $params['sort'] ) {
-			case 'date_added': {
-				$order_by = 'ORDER BY `added_date`';
-				break;
-			}
+		$order_by = 'ORDER BY ';
+		switch ( $params['sort'] ) 
+		{
 			case 'num_votes': {
-				$order_by = 'ORDER BY `total_submits`';
+				$order_by .= '`total_submits`';
 				break;
 			}
 			default: {
-				$order_by = 'ORDER BY `added_date`';
+				$order_by .= '`added_date`';
 				break;
 			}
 		}
 		switch ( $params['sortdir'] ) {
-			case 'asc': {
-				$order_by .= ' ASC';
-				break;
-			}
 			case 'desc': {
 				$order_by .= ' DESC';
 				break;
@@ -353,10 +346,6 @@ class YOP_Poll_Public {
 		}
 		$limit = '';
 		switch ( $params['show'] ) {
-			case 'all': {
-				$polls = YOP_Poll_Polls::get_all_polls_for_archive( $params, $order_by );
-				break;
-			}
 			case 'active': {
 				$polls = YOP_Poll_Polls::get_active_polls_for_archive( $params, $order_by );
 				break;
