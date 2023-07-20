@@ -334,6 +334,18 @@ class YOP_Poll_Basic {
 								. __( 'Log In', 'yop-poll' )
 							. '</button>'
 						. '</div>'
+						. '<div class="yop-poll-form-group yop-poll-section-login-options">'
+							. '<p>'
+								. '<a href="' . wp_registration_url() . '" target="_blank">'
+									. __( 'No account? Register here', 'yop-poll' )
+								. '</a>'
+								. '</p>'
+							. '<p>'
+								. '<a href="'. wp_login_url( '', false ) . '?action=lostpassword" target="_blank">'
+									. __( 'Forgot password', 'yop-poll' )
+								. '</a>'
+							. '</p>'
+						. '</div>'
 					. '</div>'
 				. '</div>'
 			. '</div>';

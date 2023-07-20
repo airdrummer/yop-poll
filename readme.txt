@@ -4,7 +4,7 @@ Donate Link: https://www.yop-poll.com
 Tags: create poll, poll plugin, poll, polls, wordpress poll, vote, voting, survey, polling, yop poll, yop, booth
 Requires at least: 3.3
 Tested up to: 6.2
-Stable tag: 6.5.25
+Stable tag: 6.5.26
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.htm
 
@@ -118,6 +118,10 @@ You can have only one question per poll.
 12. Poll With Vertical Display Showing Results Before Vote
 
 == Changelog ==
+
+= 6.5.26 =
+* remove username and password sanitization for login. wp_signon will handle the sanitization
+* added Create Account and Forgot Password links on login modal
 
 = 6.5.25 =
 * fixed php warning when using YOP Poll as a widget

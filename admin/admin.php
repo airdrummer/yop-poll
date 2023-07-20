@@ -475,6 +475,14 @@ class YOP_Poll_Admin {
 				$maintenance  = new YOP_POLL_Maintenance();
 				$maintenance->update_to_version_6_5_24();
 			}
+			if ( true === version_compare( $installed_version, '6.5.25', '<' ) ) {
+				$maintenance  = new YOP_POLL_Maintenance();
+				$maintenance->update_to_version_6_5_25();
+			}
+			if ( true === version_compare( $installed_version, '6.5.26', '<' ) ) {
+				$maintenance  = new YOP_POLL_Maintenance();
+				$maintenance->update_to_version_6_5_26();
+			}
         }
 	}
 	public function load_translations() {
@@ -2038,8 +2046,8 @@ class YOP_Poll_Admin {
 	}
 	public function login_user() {
 		$new_tokens = array();
-		$username = isset( $_POST['username'] ) ? sanitize_text_field( wp_unslash( $_POST['username'] ) ) : '';
-		$password = isset( $_POST['password'] ) ? sanitize_text_field( wp_unslash( $_POST['password'] ) ) : '';
+		$username = isset( $_POST['username'] ) ? $_POST['username'] : '';
+		$password = isset( $_POST['password'] ) ? $_POST['password'] : '';
 		$_token = isset( $_POST['_token'] ) ? sanitize_text_field( wp_unslash( $_POST['_token'] ) ) : '';
 		$poll_id = isset( $_POST['pollId'] ) ? sanitize_text_field( wp_unslash( $_POST['pollId'] ) ) : '';
 		$polls_on_page = isset( $_POST['pollsOnPage'] ) ? YOP_Poll_Helper::sanitize_text_or_array_or_object( $_POST['pollsOnPage'] ) : array();
